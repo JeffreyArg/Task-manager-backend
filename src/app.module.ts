@@ -6,6 +6,9 @@ import { classes } from '@automapper/classes';
 @Module({
   imports: [
     DatabaseModule,
+    AutomapperModule.forRoot({
+      strategyInitializer: classes(),
+    }),
   ],
   controllers: [],
 })
