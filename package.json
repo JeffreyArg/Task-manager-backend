@@ -23,7 +23,9 @@
     "migration:create": "npm run typeorm -- migration:create",
     "migration:run": "npm run typeorm -- migration:run",
     "migration:revert": "npm run typeorm -- migration:revert",
-    "seed:statuses": "ts-node -r tsconfig-paths/register -r reflect-metadata src/contexts/tasks-management/infrastructure/persistence/typeorm/seeds/seed-task-statuses.ts"
+    "seed:statuses": "ts-node -r tsconfig-paths/register -r reflect-metadata src/contexts/tasks-management/infrastructure/persistence/typeorm/seeds/seed-task-statuses.ts",
+    "typeorm:prod": "node ./node_modules/typeorm/cli.js -d dist/contexts/tasks-management/infrastructure/persistence/typeorm/config/datasource.js",
+    "migration:run:prod": "npm run typeorm:prod -- migration:run"
   },
   "dependencies": {
     "@automapper/classes": "^8.8.1",

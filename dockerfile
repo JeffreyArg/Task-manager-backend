@@ -17,11 +17,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 
 COPY --from=builder /app/dist ./dist
-COPY src ./src
-
-
-RUN npm i -g ts-node tsconfig-paths
 
 EXPOSE 3000
 
-CMD npm run migration:run && npm run start:prod
+CMD npm run migration:run:prod && npm run start:prod
