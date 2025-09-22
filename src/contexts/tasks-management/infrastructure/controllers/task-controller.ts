@@ -21,9 +21,9 @@ export class TasksController {
         return this.createTaskUseCase.execute({
             title: createTaskDto.title,
             description: createTaskDto.description,
-            statusId: createTaskDto.statusId,
-            userId: createTaskDto.userId,
-            dueDate: createTaskDto.dueDate ? new Date(createTaskDto.dueDate) : undefined,
+            statusId: createTaskDto.status_id,
+            userId: createTaskDto.user_id,
+            dueDate: createTaskDto.due_date ? new Date(createTaskDto.due_date) : undefined,
         });
     }
 
@@ -33,12 +33,12 @@ export class TasksController {
         @Query() query: ListUserTasksQueryDto,
     ) {
         return this.listUserTasksUseCase.execute(userId, {
-            statusId: query.statusId,
-            dueDateFrom: query.dueDateFrom ? new Date(query.dueDateFrom) : undefined,
-            dueDateTo: query.dueDateTo ? new Date(query.dueDateTo) : undefined,
-            searchText: query.searchText,
-            pageNumber: query.pageNumber,
-            pageSize: query.pageSize,
+            statusId: query.status_id,
+            dueDateFrom: query.due_date_from ? new Date(query.due_date_from) : undefined,
+            dueDateTo: query.due_date_to ? new Date(query.due_date_to) : undefined,
+            searchText: query.search_text,
+            pageNumber: query.page_number,
+            pageSize: query.page_size,
         });
     }
 

@@ -35,29 +35,29 @@ export class TaskRepositoryAdapter implements TaskRepository {
       pageSize?: number;
     },
   ) {
-    const queryBuilder = this.taskOrmRepository
+    const qb = this.taskOrmRepository
       .createQueryBuilder('task')
       .leftJoinAndSelect('task.status', 'taskStatus')
-      .where('task.user_id = :userId', { userId })
-      .andWhere('task.was_deleted = false')
-      .orderBy('task.created_at', 'DESC');
+      .where('task.userId = :userId', { userId })
+      .andWhere('task.wasDeleted = false')
+      .orderBy('task.createdAt', 'DESC');
 
     if (filters.statusId) {
-      queryBuilder.andWhere('task.status_id = :statusId', { statusId: filters.statusId });
+      qb.andWhere('task.statusId = :statusId', { statusId: filters.statusId });
     }
     if (filters.dueDateFrom) {
-      queryBuilder.andWhere('task.due_date >= :dueDateFrom', { dueDateFrom: filters.dueDateFrom });
+      qb.andWhere('task.dueDate >= :dueDateFrom', { dueDateFrom: filters.dueDateFrom });
     }
     if (filters.dueDateTo) {
-      queryBuilder.andWhere('task.due_date <= :dueDateTo', { dueDateTo: filters.dueDateTo });
+      qb.andWhere('task.dueDate <= :dueDateTo', { dueDateTo: filters.dueDateTo });
     }
     if (filters.searchText) {
-      queryBuilder.andWhere('(task.title ILIKE :searchText OR task.description ILIKE :searchText)', {
+      qb.andWhere('(task.title ILIKE :searchText OR task.description ILIKE :searchText)', {
         searchText: `%${filters.searchText}%`,
       });
     }
 
-    return paginateQueryBuilder(queryBuilder, {
+    return paginateQueryBuilder(qb, {
       pageNumber: filters.pageNumber,
       pageSize: filters.pageSize,
     });

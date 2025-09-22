@@ -10,12 +10,12 @@ export class CreateTaskDto {
     description?: string;
 
     @IsUUID()
-    statusId: string;
+    status_id: string;
 
     @IsUUID()
-    userId: string;
+    user_id: string;
 
     @IsOptional()
     @IsISO8601()
-    dueDate?: string;
+    due_date?: string;
 }

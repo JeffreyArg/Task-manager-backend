@@ -4,28 +4,28 @@ import { Type } from 'class-transformer';
 export class ListUserTasksQueryDto {
   @IsOptional()
   @IsUUID()
-  statusId?: string;
+  status_id?: string;
 
   @IsOptional()
   @IsISO8601()
-  dueDateFrom?: string;
+  due_date_from?: string;
 
   @IsOptional()
   @IsISO8601()
-  dueDateTo?: string;
+  due_date_to?: string;
 
   @IsOptional()
-  searchText?: string;
+  search_text?: string;
 
   @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  pageNumber?: number;
+  page_number?: number;
 
   @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  pageSize?: number;
+  page_size?: number;
 }

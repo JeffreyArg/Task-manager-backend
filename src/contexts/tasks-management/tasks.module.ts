@@ -8,6 +8,7 @@ import { ListUserTasks } from './aplication/use-cases/list-user-tasks';
 import { DeleteTask } from './aplication/use-cases/delete-task';
 import { UserEntity } from './infrastructure/persistence/typeorm/entities/user.entity';
 import { TaskStatusEntity } from './infrastructure/persistence/typeorm/entities/task-status.entity';
+import { TaskStatusesController } from './infrastructure/controllers/task-statuses.controller';
 
 
 @Module({
@@ -16,12 +17,21 @@ import { TaskStatusEntity } from './infrastructure/persistence/typeorm/entities/
         UserEntity,
         TaskStatusEntity,
     ])],
-    controllers: [TasksController],
+    controllers: [TasksController, TaskStatusesController],
     providers: [
         { provide: 'TaskRepository', useClass: TaskRepositoryAdapter },
-        { provide: CreateTask, useFactory: (repo: any) => new CreateTask(repo), inject: ['TaskRepository'] },
-        { provide: ListUserTasks, useFactory: (repo: any) => new ListUserTasks(repo), inject: ['TaskRepository'] },
-        { provide: DeleteTask, useFactory: (repo: any) => new DeleteTask(repo), inject: ['TaskRepository'] },
+        {
+            provide: CreateTask,
+            useFactory: (repo: any) => new CreateTask(repo), inject: ['TaskRepository']
+        },
+        {
+            provide: ListUserTasks,
+            useFactory: (repo: any) => new ListUserTasks(repo), inject: ['TaskRepository']
+        },
+        {
+            provide: DeleteTask,
+            useFactory: (repo: any) => new DeleteTask(repo), inject: ['TaskRepository']
+        },
     ],
 })
 export class TasksModule { }
