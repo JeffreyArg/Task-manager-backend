@@ -28,6 +28,9 @@ export class TaskEntity {
   @Column({ name: 'user_id', type: 'uuid' })
   userId: string;
 
+  @Column({ name: 'due_date', type: 'timestamptz', nullable: true })
+  dueDate: Date | null;
+
   @Column({ name: 'was_deleted', type: 'boolean', default: false })
   wasDeleted: boolean;
 
