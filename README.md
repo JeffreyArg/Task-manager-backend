@@ -62,12 +62,12 @@ npm run start:prod
 npm run start:debug
 ```
 
-La aplicación estará disponible en: `http://localhost:3000`
+La aplicación estará disponible en: `http://localhost:3001`
 
 ##  Documentación API
 
 ###  Swagger UI
-Accede a la documentación interactiva en: **http://localhost:3000/api/docs**
+Accede a la documentación interactiva en: **http://localhost:3001/api/docs**
 
 ###  Endpoints Principales
 
@@ -214,18 +214,24 @@ npm run test:watch
 docker build -t task-manager-api .
 
 # Ejecutar contenedor
-docker run -p 3000:3000 task-manager-api
+docker run -p 3001:3000 task-manager-api
 ```
 
 ### Variables de Entorno
 Crear archivo `.env`:
-```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=password
-DB_DATABASE=task_manager
-```
+
+# Task Manager Backend (NestJS + TypeORM + Postgres)
+
+API para gestionar tareas asignadas a usuarios, con filtros y paginación. Documentada con Swagger.
+
+## Requisitos
+- Docker y Docker Compose
+
+## Configuración
+1. Copia el archivo de variables:
+   ```bash
+   cp .env.example .env
+
 
 ##  Contribución
 
