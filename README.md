@@ -2,24 +2,24 @@
 
 Una API REST completa para la gestión de tareas construida con NestJS, TypeScript y PostgreSQL.
 
-## 📋 Descripción
+##  Descripción
 
 Esta API permite gestionar tareas de usuarios con funcionalidades completas de CRUD, filtrado, paginación y estados de tareas. Implementa arquitectura hexagonal con Domain-Driven Design (DDD) y cuenta con documentación interactiva con Swagger.
 
-## 🚀 Características
+##  Características
 
-- ✅ **Gestión completa de tareas** (crear, listar, eliminar)
-- 👥 **Gestión de usuarios** (crear, listar, obtener por ID)
-- 📊 **Estados de tareas** configurables
-- 🔍 **Filtrado avanzado** por estado, fecha y texto
-- 📄 **Paginación** de resultados
-- 📖 **Documentación Swagger** interactiva
-- 🏗️ **Arquitectura Hexagonal** con DDD
-- ✨ **AutoMapper** para mapeo de entidades
-- 🗄️ **TypeORM** con PostgreSQL
-- 🔄 **Migraciones** de base de datos
+-  **Gestión completa de tareas** (crear, listar, eliminar)
+-  **Gestión de usuarios** (crear, listar, obtener por ID)
+-  **Estados de tareas** configurables
+-  **Filtrado avanzado** por estado, fecha y texto
+-  **Paginación** de resultados
+-  **Documentación Swagger** interactiva
+-  **Arquitectura Hexagonal** con DDD
+-  **AutoMapper** para mapeo de entidades
+-  **TypeORM** con PostgreSQL
+-  **Migraciones** de base de datos
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 - **Framework**: NestJS
 - **Lenguaje**: TypeScript
@@ -29,7 +29,7 @@ Esta API permite gestionar tareas de usuarios con funcionalidades completas de C
 - **Validación**: class-validator
 - **Mapeo**: AutoMapper
 
-## 📦 Instalación
+##  Instalación
 
 ```bash
 # Clonar el repositorio
@@ -49,7 +49,7 @@ npm run migration:run
 npm run seed:statuses
 ```
 
-## 🚦 Ejecutar la aplicación
+##  Ejecutar la aplicación
 
 ```bash
 # Modo desarrollo
@@ -62,16 +62,16 @@ npm run start:prod
 npm run start:debug
 ```
 
-La aplicación estará disponible en: `http://localhost:3000`
+La aplicación estará disponible en: `http://localhost:3001`
 
-## 📚 Documentación API
+##  Documentación API
 
-### 🌐 Swagger UI
-Accede a la documentación interactiva en: **http://localhost:3000/api/docs**
+###  Swagger UI
+Accede a la documentación interactiva en: **http://localhost:3001/api/docs**
 
-### 📋 Endpoints Principales
+###  Endpoints Principales
 
-#### 🗂️ Tareas (Tasks)
+####  Tareas (Tasks)
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -79,7 +79,7 @@ Accede a la documentación interactiva en: **http://localhost:3000/api/docs**
 | `GET` | `/users/:userId/tasks` | Listar tareas de usuario |
 | `DELETE` | `/tasks/:taskId` | Eliminar tarea |
 
-#### 👥 Usuarios (Users)
+####  Usuarios (Users)
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -87,7 +87,7 @@ Accede a la documentación interactiva en: **http://localhost:3000/api/docs**
 | `GET` | `/users` | Listar todos los usuarios |
 | `GET` | `/users/:userId` | Obtener usuario por ID |
 
-#### 📊 Estados de Tareas (Task Statuses)
+####  Estados de Tareas (Task Statuses)
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -124,11 +124,11 @@ Content-Type: application/json
 
 {
   "email": "usuario@ejemplo.com",
-  "name": "Juan Pérez"
+  "name": "Harold Arguello"
 }
 ```
 
-## 📝 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 src/
@@ -151,7 +151,7 @@ src/
             └── persistence/             # Capa de persistencia
 ```
 
-## 🗄️ Base de Datos
+##  Base de Datos
 
 ### Comandos de Migración
 
@@ -172,7 +172,7 @@ npm run migration:revert
 npm run seed:statuses
 ```
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Tests unitarios
@@ -188,7 +188,7 @@ npm run test:cov
 npm run test:watch
 ```
 
-## 📊 Funcionalidades Avanzadas
+##  Funcionalidades Avanzadas
 
 ### Filtrado de Tareas
 - **Por estado**: Filtrar tareas por su estado actual
@@ -206,7 +206,7 @@ npm run test:watch
 - Conversión de convenciones de nombres (camelCase ↔ snake_case)
 - Transformación de fechas y tipos
 
-## 🚀 Despliegue
+##  Despliegue
 
 ### Docker (Próximamente)
 ```bash
@@ -214,20 +214,26 @@ npm run test:watch
 docker build -t task-manager-api .
 
 # Ejecutar contenedor
-docker run -p 3000:3000 task-manager-api
+docker run -p 3001:3000 task-manager-api
 ```
 
 ### Variables de Entorno
 Crear archivo `.env`:
-```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=password
-DB_DATABASE=task_manager
-```
 
-## 🤝 Contribución
+# Task Manager Backend (NestJS + TypeORM + Postgres)
+
+API para gestionar tareas asignadas a usuarios, con filtros y paginación. Documentada con Swagger.
+
+## Requisitos
+- Docker y Docker Compose
+
+## Configuración
+1. Copia el archivo de variables:
+   ```bash
+   cp .env.example .env
+
+
+##  Contribución
 
 1. Fork el proyecto
 2. Crear rama para feature (`git checkout -b feature/nueva-funcionalidad`)
@@ -235,10 +241,10 @@ DB_DATABASE=task_manager
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Crear Pull Request
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
 
 ---
 
-**Desarrollado con ❤️ usando NestJS y TypeScript**
+**Desarrollado usando NestJS y TypeScript**
