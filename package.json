@@ -18,12 +18,12 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "ts-node -r ts-node/register ./node_modules/typeorm/cli.js -d src/contexts/tasks-management/infrastructure/persistence/typeorm/config/datasource.ts",
-    "migration:generate": "npm run typeorm -- migration:generate src/contexts/tasks-management/infrastructure/persistence/typeorm/migrations/auto",
-    "migration:create": "npm run typeorm -- migration:create src/contexts/tasks-management/infrastructure/persistence/typeorm/migrations/manual",
+    "typeorm": "ts-node -r tsconfig-paths/register -r reflect-metadata ./node_modules/typeorm/cli.js -d src/contexts/tasks-management/infrastructure/persistence/typeorm/config/datasource.ts",
+    "migration:generate": "npm run typeorm -- migration:generate",
+    "migration:create": "npm run typeorm -- migration:create",
     "migration:run": "npm run typeorm -- migration:run",
     "migration:revert": "npm run typeorm -- migration:revert",
-    "seed:run": "ts-node src/contexts/tasks-management/infrastructure/persistence/typeorm/seeds/index.ts"
+    "seed:statuses": "ts-node -r tsconfig-paths/register -r reflect-metadata src/contexts/tasks-management/infrastructure/persistence/typeorm/seeds/seed-task-statuses.ts"
   },
   "dependencies": {
     "@automapper/classes": "^8.8.1",
