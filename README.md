@@ -1,99 +1,244 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Task Manager API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Una API REST completa para la gestión de tareas construida con NestJS, TypeScript y PostgreSQL.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📋 Descripción
 
-## Description
+Esta API permite gestionar tareas de usuarios con funcionalidades completas de CRUD, filtrado, paginación y estados de tareas. Implementa arquitectura hexagonal con Domain-Driven Design (DDD) y cuenta con documentación interactiva con Swagger.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Características
 
-## Project setup
+- ✅ **Gestión completa de tareas** (crear, listar, eliminar)
+- 👥 **Gestión de usuarios** (crear, listar, obtener por ID)
+- 📊 **Estados de tareas** configurables
+- 🔍 **Filtrado avanzado** por estado, fecha y texto
+- 📄 **Paginación** de resultados
+- 📖 **Documentación Swagger** interactiva
+- 🏗️ **Arquitectura Hexagonal** con DDD
+- ✨ **AutoMapper** para mapeo de entidades
+- 🗄️ **TypeORM** con PostgreSQL
+- 🔄 **Migraciones** de base de datos
 
-```bash
-$ npm install
-```
+## 🛠️ Tecnologías
 
-## Compile and run the project
+- **Framework**: NestJS
+- **Lenguaje**: TypeScript
+- **Base de Datos**: PostgreSQL
+- **ORM**: TypeORM
+- **Documentación**: Swagger/OpenAPI
+- **Validación**: class-validator
+- **Mapeo**: AutoMapper
+
+## 📦 Instalación
 
 ```bash
-# development
-$ npm run start
+# Clonar el repositorio
+git clone https://github.com/JeffreyArg/Task-manager-backend.git
+cd Task-manager-backend
 
-# watch mode
-$ npm run start:dev
+# Instalar dependencias
+npm install
 
-# production mode
-$ npm run start:prod
+# Configurar base de datos PostgreSQL
+# Crear archivo .env con la configuración de la DB
+
+# Ejecutar migraciones
+npm run migration:run
+
+# Ejecutar seeds (estados de tareas)
+npm run seed:statuses
 ```
 
-## Run tests
+## 🚦 Ejecutar la aplicación
 
 ```bash
-# unit tests
-$ npm run test
+# Modo desarrollo
+npm run start:dev
 
-# e2e tests
-$ npm run test:e2e
+# Modo producción
+npm run start:prod
 
-# test coverage
-$ npm run test:cov
+# Modo debug
+npm run start:debug
 ```
 
-## Deployment
+La aplicación estará disponible en: `http://localhost:3000`
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 📚 Documentación API
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 🌐 Swagger UI
+Accede a la documentación interactiva en: **http://localhost:3000/api/docs**
+
+### 📋 Endpoints Principales
+
+#### 🗂️ Tareas (Tasks)
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `POST` | `/tasks` | Crear nueva tarea |
+| `GET` | `/users/:userId/tasks` | Listar tareas de usuario |
+| `DELETE` | `/tasks/:taskId` | Eliminar tarea |
+
+#### 👥 Usuarios (Users)
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `POST` | `/users` | Crear nuevo usuario |
+| `GET` | `/users` | Listar todos los usuarios |
+| `GET` | `/users/:userId` | Obtener usuario por ID |
+
+#### 📊 Estados de Tareas (Task Statuses)
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `GET` | `/task-statuses` | Listar estados disponibles |
+
+## 🔧 Ejemplos de Uso
+
+### Crear una tarea
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+POST /tasks
+Content-Type: application/json
+
+{
+  "title": "Completar proyecto",
+  "description": "Descripción de la tarea",
+  "status_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "user_id": "b47ac10b-58cc-4372-a567-0e02b2c3d480",
+  "due_date": "2025-12-31T23:59:59Z"
+}
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Listar tareas de un usuario con filtros
 
-## Resources
+```bash
+GET /users/b47ac10b-58cc-4372-a567-0e02b2c3d480/tasks?status_id=f47ac10b-58cc-4372-a567-0e02b2c3d479&page_number=1&page_size=10&search_text=proyecto
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Crear un usuario
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+POST /users
+Content-Type: application/json
 
-## Support
+{
+  "email": "usuario@ejemplo.com",
+  "name": "Juan Pérez"
+}
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📝 Estructura del Proyecto
 
-## Stay in touch
+```
+src/
+├── main.ts                              # Punto de entrada de la aplicación
+├── app.module.ts                        # Módulo principal
+└── contexts/
+    ├── shared/
+    │   ├── database/                    # Configuración de base de datos
+    │   └── pagination/                  # Utilidades de paginación
+    └── tasks-management/
+        ├── tasks.module.ts              # Módulo de tareas
+        ├── user.module.ts               # Módulo de usuarios
+        ├── application/
+        │   └── use-cases/               # Casos de uso
+        ├── domain/
+        │   └── ports/                   # Interfaces del dominio
+        └── infrastructure/
+            ├── controllers/             # Controladores REST
+            ├── mapping/                 # Mapeo AutoMapper
+            └── persistence/             # Capa de persistencia
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🗄️ Base de Datos
 
-## License
+### Comandos de Migración
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+# Generar nueva migración
+npm run migration:generate -- src/migrations/NombreMigracion
+
+# Crear migración vacía
+npm run migration:create -- src/migrations/NombreMigracion
+
+# Ejecutar migraciones
+npm run migration:run
+
+# Revertir migración
+npm run migration:revert
+
+# Ejecutar seeds
+npm run seed:statuses
+```
+
+## 🧪 Testing
+
+```bash
+# Tests unitarios
+npm run test
+
+# Tests e2e
+npm run test:e2e
+
+# Cobertura
+npm run test:cov
+
+# Tests en modo watch
+npm run test:watch
+```
+
+## 📊 Funcionalidades Avanzadas
+
+### Filtrado de Tareas
+- **Por estado**: Filtrar tareas por su estado actual
+- **Por fecha**: Rango de fechas límite (desde/hasta)
+- **Por texto**: Búsqueda en título y descripción
+- **Paginación**: Control de página y tamaño
+
+### Validaciones
+- Validación automática de DTOs con `class-validator`
+- Transformación de tipos con `class-transformer`
+- Sanitización de datos de entrada
+
+### Mapeo Automático
+- Mapeo entre entidades y DTOs con AutoMapper
+- Conversión de convenciones de nombres (camelCase ↔ snake_case)
+- Transformación de fechas y tipos
+
+## 🚀 Despliegue
+
+### Docker (Próximamente)
+```bash
+# Construir imagen
+docker build -t task-manager-api .
+
+# Ejecutar contenedor
+docker run -p 3000:3000 task-manager-api
+```
+
+### Variables de Entorno
+Crear archivo `.env`:
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=password
+DB_DATABASE=task_manager
+```
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crear rama para feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Crear Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+
+---
+
+**Desarrollado con ❤️ usando NestJS y TypeScript**

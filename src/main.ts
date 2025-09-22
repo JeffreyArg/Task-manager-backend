@@ -8,7 +8,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
-  // Configuración de Swagger
   const config = new DocumentBuilder()
     .setTitle('Task Manager API')
     .setDescription('API para la gestión de tareas con usuarios y estados')
@@ -22,7 +21,5 @@ async function bootstrap() {
   SwaggerModule.setup('api/docs', app, document);
 
   await app.listen(3000);
-  console.log(`Application is running on: http://localhost:3000`);
-  console.log(`Swagger documentation available at: http://localhost:3000/api/docs`);
 }
 bootstrap();
